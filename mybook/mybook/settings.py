@@ -124,6 +124,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # 静的ファイルを共通で置く
-STATICFILES_DIR = {
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
-}
+]
