@@ -1,0 +1,11 @@
+# Python
+*.pyc
+
+# venv
+venv/
+
+# PyCharm
+mybook/.idea/
+
+# Database
+mybook/*.sqlite3
