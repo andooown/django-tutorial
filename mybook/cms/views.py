@@ -43,4 +43,8 @@ def book_edit(request, book_id=None):
 
 def book_delete(request, book_id):
     """書籍の削除"""
-    return HttpResponse('書籍の削除')
+    # 指定された Book オブジェクトを取得し、削除する
+    book = get_object_or_404(Book, pk=book_id)
+    book.delete()
+    # 書籍一覧のページにリダイレクト
+    return redirect('cms:book_list')
