@@ -81,6 +81,15 @@ def impression_edit(request, book_id, impression_id=None):
                   dict(form=form, book_id=book_id, impression_id=impression_id))    # テンプレートに渡すデータ
 
 
+def impression_delete(request, book_id, impression_id):
+    """感想の削除"""
+    # 指定された感想を削除
+    impression = get_object_or_404(Impression, pk=impression_id)
+    impression.delete()
+    # 感想の一覧のページにリダイレクト
+    return redirect('cms:impression_list', book_id=book_id)
+
+
 class ImpressionList(ListView):
     """感想の一覧"""
     context_object_name = 'impressions'
